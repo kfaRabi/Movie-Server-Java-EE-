@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 6, 2015, 4:29:57 PM
+    Author     : panda
+*/
+
+// css reset
+//body {}
+ul {list-style: none;}
+a {text-decoration: none;color:black;}
+a:hover {color:white;}
+.left {float:left}
+.right {float: right}
+body {background-color: #5187AE;}
+
+
+/* theme */
+h3 {background-color: #3280B9;width:100%;padding: 10px 0px;}
+
+
+
+/* header section */
+#header-area {background-color: #4991C5;height: 80px;}
+#logo {margin-left: 45px;}
+#header-menu {margin-top: 15px;margin-right: 45px;}
+#header-menu ul {}
+#header-menu ul li {float: left;margin-left: 10px;}
+
+
+
+/* main area */
+#main-area h3 {text-align: center;}
+
+
+
+/* sidebar */
+#sidebar {width: 25%;margin-bottom: 20px;}
+.ui-menu,.ui-widget-header  {background-color: #1E8EDF;}
+#search-field {margin-left: 15px;}
+#search-field #icon {position: relative;top: -25px;right: -195px;}
+#search-field #icon img {width: 20px;height: 20px;}
+
+
+
+/* content */
+#main-area #content {width: 75%;}
+#main-area #content img {width: 500px;}
+#main-area #content #main-slider {display: block;clear: both;margin: 0 auto;width: 605px}
+#main-area #content #main-slider .ui-galleria {}
+#main-area #content #top-rated-slider,
+#main-area #content #most-downloaded-slider{text-align: center;}
+#main-area #content #main-slider img {width: 100%;height: 100%;}
+#main-area #content #most-downloaded-slider img,
+#main-area #content #top-rated-slider img {width: 200px;height: 200px}
+.ui-panelgrid-cell {background-color: #1E8EDF;}
+#main-area #content #top-rated-slider {margin-bottom: 20px;}
+.ui-carousel .ui-carousel-viewport ul {
+   width: 600px !important;
+   height: 300px;
+  
+}
+.ui-carousel{
+     background-color: #4991C5;
+}
+
+/* footer area */
+#footer-area {clear: both;text-align: center;background-color: #A8D0EC;padding: 5px;}

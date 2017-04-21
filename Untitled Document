@@ -1,0 +1,4 @@
+CREATE DATABASE database_name;
+exit
+
+mysql -u username -p database_name < backup_name.sql

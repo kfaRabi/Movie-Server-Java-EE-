@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/core"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="indexStyle.css" />
+    </h:head>
+    <h:body style="margin: 0 0 auto">
+        <div id="header-area">
+            <div id="logo" class="left">
+                <h1><h:link outcome="index.xhtml" value="SITE LOGO"/></h1>
+                <!-- Use <h:outputLink><h:graphicImage></h:outputLink> -->
+            </div>
+            <div id="header-menu" class="right">
+                <ul>
+                    <li style="display: #{userController.status};"><h:link value="Admin Panel" outcome="admin"/></li>
+                    <li><h:link value="Home" outcome="index" /></li>
+                    <li><h:link value="Browse All" outcome="viewAll" /></li>
+                    <li><h:link value="Logout" outcome="login" /></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main-area">
+            <div id="sidebar" class="left">
+                <h:form>  
+                    <h3>Search</h3>
+                    <div id="search-field">
+                        <p:inputText value="" alt="Search..." title="search" />
+                        <div id="icon">
+                            <p:graphicImage library="img" alt="Search" name="search.png" />
+                        </div>
+                    </div>
+                    <hr/>
+                    <h3>Filter</h3>
+                    <p:menu id="sidebar-menu">
+                        <p:submenu label="Category">
+                            <p:menuitem value="Action"/>
+                            <p:menuitem value="Adventure"/>
+                            <p:menuitem value="Animation"/>
+                            <p:menuitem value="Biography"/>
+                            <p:menuitem value="Comedy"/>
+                            <p:menuitem value="Crime"/>
+                            <p:menuitem value="Documentary"/>
+                            <p:menuitem value="Drama"/>
+                            <p:menuitem value="Fantasy"/>
+                            <p:menuitem value="Horror"/>
+                            <p:menuitem value="History"/>
+                            <p:menuitem value="Musical"/>
+                            <p:menuitem value="Mystery"/>
+                            <p:menuitem value="Romance"/>
+                            <p:menuitem value="Sci-Fi"/>
+                            <p:menuitem value="Sport"/>
+                            <p:menuitem value="Thriller"/>
+                            <p:menuitem value="War"/>
+                            <p:menuitem value="Western"/>
+                        </p:submenu>
+                        <p:submenu label="Most Downloaded">
+                            <p:menuitem value="Most Dowanloaded" ajax="false" icon="ui-icon-close"/>
+                        </p:submenu>
+                        <p:submenu label="Top Rated">
+                            <p:menuitem value="Highest Rated" url="" icon="ui-icon-home"/>
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </div>
+            <div id="content" class="right">
+                <div id="main-slider" class="">
+                    <h3>Featured Movies</h3>
+                    <!--<p:galleria value="{imagesView.images}" var="image" panelWidth="10" panelHeight="313" showCaption="true">-->
+                    <p:galleria value="#{viewAllController.featuredMovies}" var="i" showCaption="true" panelWidth="">
+                        <p:graphicImage library="img" name="#{i.movieName}#{i.posterExt}" alt="#{i.description}" title="#{i.movieName}"/>
+                    </p:galleria>
+                </div>
+                <div id="most-downloaded-slider" class="">
+                    <h3>Most Downloaded Movies</h3>
+                    <!--<h:graphicImage alt="her" library="img" name="her.jpg"/> -->
+                    <p:carousel value="#{viewAllController.featuredMovies}" var="i">
+                        <p:panelGrid columns="1">
+                            <p:graphicImage library="img" name="#{i.movieName}#{i.posterExt}"/>
+                            <p:commandLink value="#{i.movieName}" />
+                        </p:panelGrid>
+                        <f:facet name="footer">
+                                Click On The Movie Name To View Details
+                        </f:facet>
+                    </p:carousel>
+                </div>
+                <div id="top-rated-slider" class="">
+                    <h3>Highest Rated Movies</h3>
+                    <!--<h:graphicImage alt="her" library="img" name="her.jpg"/> -->
+                    <p:carousel >
+                        <p:panelGrid columns="1">
+                            <p:graphicImage library="img" name="her.jpg"/>
+                            <p:commandLink value="Movie Name" />
+                        </p:panelGrid>
+                        <f:facet name="footer">
+                                Click On The Movie Name To View Details
+                        </f:facet>
+                    </p:carousel>
+                </div>
+            </div>
+        </div>
+        <div id="footer-area">
+            <h1>Footer Text</h1>
+        </div>
+    </h:body>
+</html>
+

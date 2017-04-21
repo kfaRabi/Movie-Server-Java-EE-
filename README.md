@@ -1,0 +1,2 @@
+# Movie-Server(Java-EE)
+A half complete movie server using JSF, JAVA PrimeFacesm, Hibernate and GlashFish Server. File uploading and downloading works (those were the major requirements of the assignment). The Category option and other carousel sliders except the first one are still static. I was a first year student when I was doing this and my color selection and combination were terrible at that moment. Thanks God, it has improved now :p.

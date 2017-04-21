@@ -1,0 +1,25 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 8, 2015, 10:18:29 AM
+    Author     : panda
+*/
+
+// css reset
+//body {}
+ul {list-style: none;}
+a {text-decoration: none;color:grey;}
+a:hover {color:black;}
+.left {float:left}
+.right {float: right}
+
+
+
+/* main css */
+#view-all #each-movie img {width: 100%;height: 300px;}
+#view-all .ui-datagrid-column{width: 33%;}
+#view-all .panel-grid-class {width: 100%;}
+#each-movie {margin-bottom: 20px;}

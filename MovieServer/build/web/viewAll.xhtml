@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+        <title>All Movies</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="viewAll.css" />
+    </h:head>
+    <h:body>
+        <div id="view-all">
+            <h:form id="form" class="view-form">
+                <p:dataGrid paginatorPosition="bottom" var="movie" value="#{viewAllController.movies}" columns="3"
+                rows="6" paginator="true" id="movies-data-grid"
+                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+                    <div id="each-movie">
+                        <p:graphicImage alt="#{movie.movieName} - #{movie.description}" library="img" name="#{movie.movieName}#{movie.posterExt}" />
+                        <h:panelGrid columns="2" class="panel-grid-class" cellpadding="4">
+                            <h:outputText value="Name:" />
+                            <h:outputText value="#{movie.movieName}" />
+                            <h:link value="Download" outcome="/resources/vdo/#{movie.movieName}#{movie.movieExt}" />
+                            <p:commandLink update=":form:movieDetail" oncomplete="PF('mDialog').show()" value="View Detail" title="View Detail">
+                                <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                                <f:setPropertyActionListener value="#{movie}" target="#{viewAllController.selectedMovie}" />
+                            </p:commandLink>
+                        </h:panelGrid>
+                        <!--<p:commandButton value="Download"-->
+                    </div>
+                    
+                    
+                </p:dataGrid>
+                <p:dialog header="Movie Info" widgetVar="mDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                    <p:outputPanel id="movieDetail" style="text-align:center;">
+                        <p:panelGrid  columns="2" rendered="#{not empty viewAllController.selectedMovie}" columnClasses="label,value">
+
+                            <h:outputText value="Released Year:" />
+                            <h:outputText value="#{viewAllController.selectedMovie.releasedYear}" />
+                            
+                            <h:outputText value="Description:" />
+                            <h:outputText value="#{viewAllController.selectedMovie.description}" />
+                            
+                            <h:outputText value="Rating:" />
+                            <h:outputText value="#{viewAllController.selectedMovie.rating}" />
+                            
+                            <h:outputText value="Categories:" />
+                            <h:panelGrid columns="1" style="text-align: center;">
+                                    <ui:repeat  value="#{viewAllController.selectedMovie.categories}" var="category">
+                                        <h:outputText style="text-align: center;" value="#{category.categoryName}" />
+                                        <br />
+                                    </ui:repeat>
+                            </h:panelGrid>
+                        </p:panelGrid>
+                    </p:outputPanel>
+                </p:dialog>
+            </h:form>
+        </div>
+    </h:body>
+</html>
